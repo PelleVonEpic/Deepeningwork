@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour {
 
-    [SerializeField] private List<Card> cards = new List<Card>();
+    [SerializeField] private List<Card> deckList = new List<Card>();
+    [SerializeField] private List<Card> cards;
 
 
     public Card drawCard(bool fullHand)
@@ -57,8 +58,10 @@ public class Deck : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        for (int i = 0; i < cards.Count; i++)
+        for (int i = 0; i < deckList.Count; i++)
         {
+            Card c = deckList[i];
+            cards.Add(c);
             cards[i].Id = i+1;
         }
 	}

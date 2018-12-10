@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Player
+{
+    Player1,
+    Player2
+
+}
+
 
 public class TurnHandler : MonoBehaviour {
 
@@ -19,6 +26,8 @@ public class TurnHandler : MonoBehaviour {
 
     [SerializeField] private CurrentPlayer player;
     [SerializeField] private CurrentEnemy enemy;
+    [SerializeField] private KeyCode changeTurnKey;
+    [SerializeField] private Text turnText;
 
     #region Getsetters
     private CurrentPlayer Player
@@ -46,6 +55,7 @@ public class TurnHandler : MonoBehaviour {
             enemy = value;
         }
     }
+
     #endregion
 
     public void ChangePlayerTurn()
@@ -53,12 +63,16 @@ public class TurnHandler : MonoBehaviour {
         if (Player == CurrentPlayer.PlayerOne)
         {
             Player = CurrentPlayer.PlayerTwo;
+            turnText.text = "Currently Player One";
+
         }
         else
         {
             Player = CurrentPlayer.PlayerOne;
+            turnText.text = "Currently Player Two";
+
         }
-        DetermineEnemy();
+
     }
 
     public void DetermineEnemy()
@@ -73,8 +87,19 @@ public class TurnHandler : MonoBehaviour {
         }
     }
 	
+    void Update()
+    {
+        if (Input.GetKeyDown(changeTurnKey))
+        {
+            ChangePlayerTurn();
+        }
+        
+    }
+	
+	void Start()
+    {
+        turnText.text = "Currently Player One";
 
-	
-	
+    }
 
 }

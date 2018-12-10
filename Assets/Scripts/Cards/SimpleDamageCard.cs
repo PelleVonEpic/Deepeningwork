@@ -6,19 +6,19 @@ using System;
 [CreateAssetMenu]
 public class SimpleDamageCard : Card {
 
-    [SerializeField] private ResourceHandler rhandler;
+    [HideInInspector] private ResourceHandler rhandler;
     [SerializeField] private int damage;
 
 	public override void OnPlay()
     {
-        rhandler.DealDamageToPlayer(damage, true);
+        rhandler = FindObjectOfType<ResourceHandler>();
+        rhandler.DealDamageToPlayer(damage, true, Player);
 
     }
 
     void Start()
     {
-        rhandler = FindObjectOfType<ResourceHandler>();
-
-
+        
+        
     }
 }

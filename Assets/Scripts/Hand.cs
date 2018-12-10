@@ -9,6 +9,7 @@ public class Hand : MonoBehaviour {
     [SerializeField] private KeyCode drawKey;
     [SerializeField] private KeyCode shuffleKey;
     [SerializeField] private Deck deck;
+    [SerializeField] private Player Player;
     [HideInInspector] private Card _card;
     [HideInInspector] private int handSize;
     [HideInInspector] private bool handIsFull = false;
@@ -33,7 +34,7 @@ public class Hand : MonoBehaviour {
             _card = deck.drawCard(handIsFull); //Tell the deck we want a card and save it as _card
             if (_card != null)
             {
-                for (int i = 0; i < handSize; i++) //search for inactive cards
+                for (int i = 0; i < handSize; i++) //search for inactive cards in hand
                 {
                     CardUI _cardToUpdate = gameObject.transform.GetChild(i).GetComponent<CardUI>();
                     if (!_cardToUpdate.isActive)

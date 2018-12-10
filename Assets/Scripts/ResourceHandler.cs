@@ -128,12 +128,11 @@ public class ResourceHandler : MonoBehaviour {
 
     }
 
-    public void DealDamageToPlayer(int amount, bool targetEnemy)
+    public void DealDamageToPlayer(int amount, bool targetEnemy, Player caster)
     {
-        tHandler.DetermineEnemy();
         if (targetEnemy)
         {
-            if (tHandler.Enemy == TurnHandler.CurrentEnemy.PlayerOne)
+            if (caster == Player.Player2)
             {
                 player1Health -= amount;
             }
@@ -144,7 +143,7 @@ public class ResourceHandler : MonoBehaviour {
         }
         else
         {
-            if (tHandler.Enemy == TurnHandler.CurrentEnemy.PlayerTwo)
+            if (caster == Player.Player1)
             {
                 player1Health -= amount;
             }

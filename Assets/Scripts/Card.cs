@@ -21,6 +21,7 @@ public class Card : ScriptableObject {
     [SerializeField] private Type type;
     [SerializeField] private int castingCost;
     [SerializeField] private int health;
+    [HideInInspector] private Player player;
     //[SerializeField] private int actionsPerTurn;
     //[SerializeField] private List<Action> cardActions = new List<Action>();
 
@@ -87,6 +88,19 @@ public class Card : ScriptableObject {
         set
         {
             cardDescription = value;
+        }
+    }
+
+    public Player Player
+    {
+        get
+        {
+            return player;
+        }
+
+        set
+        {
+            player = value;
         }
     }
 

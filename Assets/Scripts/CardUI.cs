@@ -10,6 +10,7 @@ public class CardUI : MonoBehaviour, IPointerClickHandler {
     [SerializeField] Text cardName;
     [SerializeField] Text cardDescription;
     [SerializeField] Text cardCost;
+    [SerializeField] Player player;
     [HideInInspector] Card cardReference;
     [HideInInspector] public bool isActive = false;
 
@@ -22,7 +23,6 @@ public class CardUI : MonoBehaviour, IPointerClickHandler {
         cardDescription.text = c.CardDescription;
         cardCost.text = c.CastingCost.ToString();
         cardReference = c;
-        
         
     }
     void Start ()
@@ -38,6 +38,7 @@ public class CardUI : MonoBehaviour, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        cardReference.Player = player;
         cardReference.OnPlay();
         gameObject.SetActive(false);
         isActive = false;
