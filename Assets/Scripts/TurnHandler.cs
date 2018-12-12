@@ -17,8 +17,9 @@ public class TurnHandler : MonoBehaviour
     [SerializeField] private KeyCode changeTurnKey;
     [SerializeField] private Text turnText;
     [SerializeField] private Image turnImage;
-    [SerializeField] private int turnCount = 0;
-    [SerializeField] private int turnCountTracker = 0;
+    [SerializeField] private Text turnCounterText;
+    [HideInInspector] private int turnCount = 1;
+    [HideInInspector] private int turnCountTracker = 0;
 
 
     #region Getsetters
@@ -78,6 +79,8 @@ public class TurnHandler : MonoBehaviour
             turnText.text = "Currently Player Two";
             turnImage.color = Color.cyan;
         }
+
+        turnCounterText.text = turnCount.ToString();
     }
 
 }

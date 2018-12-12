@@ -113,6 +113,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3539504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 3539505}
+  - component: {fileID: 3539507}
+  - component: {fileID: 3539506}
+  m_Layer: 5
+  m_Name: TurnCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3539505
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3539504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 536650746}
+  m_Father: {fileID: 17345729}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 100, y: 0}
+  m_SizeDelta: {x: 75, y: 75}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &3539506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3539504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.24137926, g: 1, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &3539507
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3539504}
 --- !u!1 &17345725
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +275,7 @@ RectTransform:
   - {fileID: 1160117753}
   - {fileID: 747630103}
   - {fileID: 742789812}
+  - {fileID: 3539505}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1658,9 +1728,6 @@ MonoBehaviour:
   cardName: {fileID: 1916759943}
   cardDescription: {fileID: 248057537}
   cardCost: {fileID: 1004660706}
-  player: 0
-  tHandler: {fileID: 427229560}
-  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &389626571
 MonoBehaviour:
@@ -2178,9 +2245,6 @@ MonoBehaviour:
   cardName: {fileID: 1497677279}
   cardDescription: {fileID: 73665840}
   cardCost: {fileID: 1704515563}
-  player: 0
-  tHandler: {fileID: 427229560}
-  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &425461517
 MonoBehaviour:
@@ -2246,7 +2310,8 @@ MonoBehaviour:
   changeTurnKey: 97
   turnText: {fileID: 490351191}
   turnImage: {fileID: 747630104}
-  turnCount: 0
+  turnCounterText: {fileID: 536650747}
+  turnCount: 1
   turnCountTracker: 0
 --- !u!4 &427229561
 Transform:
@@ -2620,6 +2685,80 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534928679}
+--- !u!1 &536650745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 536650746}
+  - component: {fileID: 536650748}
+  - component: {fileID: 536650747}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &536650746
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 536650745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3539505}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 75, y: 75}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &536650747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 536650745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &536650748
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 536650745}
 --- !u!1 &551341653
 GameObject:
   m_ObjectHideFlags: 0
@@ -4491,9 +4630,6 @@ MonoBehaviour:
   cardName: {fileID: 400642868}
   cardDescription: {fileID: 1229475578}
   cardCost: {fileID: 848681878}
-  player: 1
-  tHandler: {fileID: 427229560}
-  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &966230095
 MonoBehaviour:
@@ -4826,9 +4962,6 @@ MonoBehaviour:
   cardName: {fileID: 1381478307}
   cardDescription: {fileID: 1383969745}
   cardCost: {fileID: 1589553644}
-  player: 1
-  tHandler: {fileID: 427229560}
-  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1018907833
 MonoBehaviour:
@@ -4918,9 +5051,6 @@ MonoBehaviour:
   cardName: {fileID: 987278425}
   cardDescription: {fileID: 1439251427}
   cardCost: {fileID: 1402055134}
-  player: 0
-  tHandler: {fileID: 427229560}
-  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1032770015
 MonoBehaviour:
@@ -5441,9 +5571,6 @@ MonoBehaviour:
   cardName: {fileID: 758245544}
   cardDescription: {fileID: 551341655}
   cardCost: {fileID: 1372068695}
-  player: 1
-  tHandler: {fileID: 427229560}
-  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1129584176
 MonoBehaviour:
@@ -5533,9 +5660,6 @@ MonoBehaviour:
   cardName: {fileID: 280527365}
   cardDescription: {fileID: 128937909}
   cardCost: {fileID: 1440194957}
-  player: 1
-  tHandler: {fileID: 427229560}
-  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1157808759
 MonoBehaviour:
@@ -5762,9 +5886,6 @@ MonoBehaviour:
   cardName: {fileID: 36252340}
   cardDescription: {fileID: 534928681}
   cardCost: {fileID: 724724973}
-  player: 0
-  tHandler: {fileID: 427229560}
-  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1206237526
 MonoBehaviour:
@@ -6694,9 +6815,6 @@ MonoBehaviour:
   cardName: {fileID: 1260222809}
   cardDescription: {fileID: 1989658525}
   cardCost: {fileID: 1979085162}
-  player: 0
-  tHandler: {fileID: 0}
-  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1434729788
 MonoBehaviour:
@@ -7144,9 +7262,6 @@ MonoBehaviour:
   cardName: {fileID: 1661948154}
   cardDescription: {fileID: 776677444}
   cardCost: {fileID: 2089883840}
-  player: 0
-  tHandler: {fileID: 427229560}
-  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1522483594
 MonoBehaviour:
@@ -7236,9 +7351,6 @@ MonoBehaviour:
   cardName: {fileID: 2139668594}
   cardDescription: {fileID: 1103481220}
   cardCost: {fileID: 305271194}
-  player: 0
-  tHandler: {fileID: 427229560}
-  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1534642686
 MonoBehaviour:
@@ -7995,9 +8107,6 @@ MonoBehaviour:
   cardName: {fileID: 625124755}
   cardDescription: {fileID: 189646454}
   cardCost: {fileID: 1048834264}
-  player: 1
-  tHandler: {fileID: 427229560}
-  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1790521753
 MonoBehaviour:
