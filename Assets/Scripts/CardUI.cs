@@ -11,6 +11,7 @@ public class CardUI : MonoBehaviour, IPointerClickHandler {
     [SerializeField] Text cardDescription;
     [SerializeField] Text cardCost;
     [SerializeField] Player player;
+    [SerializeField] private TurnHandler tHandler;
     [HideInInspector] Card cardReference;
     [HideInInspector] public bool isActive = false;
 
@@ -23,8 +24,6 @@ public class CardUI : MonoBehaviour, IPointerClickHandler {
         cardDescription.text = c.CardDescription;
         cardCost.text = c.CastingCost.ToString();
         cardReference = c;
-        cardReference.Player = player;
-        
     }
     void Start ()
     {
@@ -39,10 +38,16 @@ public class CardUI : MonoBehaviour, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //cardReference.Player = player;
-        cardReference.OnPlay();
-        gameObject.SetActive(false);
-        isActive = false;
-        cardReference = null;
+        if (tHandler.CurrentPlayer == player)
+        {
+            cardReference.OnPlay();
+            gameObject.SetActive(false);
+            isActive = false;
+            cardReference = null;
+        }
+        else
+        {
+            Debug.Log("Not your turn!");
+        }
     }
 }

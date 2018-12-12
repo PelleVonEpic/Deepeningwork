@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Hand.cs" />
      <Compile Include="Assets\Scripts\ResourceHandler.cs" />
      <Compile Include="Assets\Scripts\TurnHandler.cs" />
+     <Compile Include="Assets\SimpleChangeTurn.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -6,7 +6,8 @@ using UnityEngine;
 public class Deck : MonoBehaviour {
 
     [SerializeField] private List<Card> deckList = new List<Card>();
-    [SerializeField] private List<Card> cards;
+    [SerializeField] private List<Card> cards = new List<Card>();
+    [SerializeField] private Player player;
 
 
     public Card drawCard(bool fullHand)
@@ -60,12 +61,13 @@ public class Deck : MonoBehaviour {
 
         for (int i = 0; i < deckList.Count; i++)
         {
-            Card c = new Card();
-            c = deckList[i];
+            Card c = Instantiate(deckList[i]);
+
+            c.Player = player;
+            c.Id = i + 1;
             cards.Add(c);
-            cards[i].Id = i+1;
         }
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

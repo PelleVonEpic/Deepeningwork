@@ -11,80 +11,48 @@ public enum Player
 }
 
 
-public class TurnHandler : MonoBehaviour {
-
-    [HideInInspector] private enum CurrentPlayer
-    {
-        PlayerOne,
-        PlayerTwo
-    }
-    [HideInInspector] public enum CurrentEnemy
-    {
-        PlayerOne,
-        PlayerTwo
-    }
-
-    [SerializeField] private CurrentPlayer player;
-    [SerializeField] private CurrentEnemy enemy;
+public class TurnHandler : MonoBehaviour
+{
+    
+    [SerializeField] private Player currentPlayer;
     [SerializeField] private KeyCode changeTurnKey;
     [SerializeField] private Text turnText;
+    [SerializeField] private Image turnImage;
+
+    public Player CurrentPlayer
+    {
+        get
+        {
+            return currentPlayer;
+        }
+
+        set
+        {
+            currentPlayer = value;
+        }
+    }
 
     #region Getsetters
-    private CurrentPlayer Player
-    {
-        get
-        {
-            return player;
-        }
-
-        set
-        {
-            player = value;
-        }
-    }
-
-    public CurrentEnemy Enemy
-    {
-        get
-        {
-            return enemy;
-        }
-
-        set
-        {
-            enemy = value;
-        }
-    }
 
     #endregion
 
     public void ChangePlayerTurn()
     {
-        if (Player == CurrentPlayer.PlayerOne)
+        if (CurrentPlayer == Player.Player1)
         {
-            Player = CurrentPlayer.PlayerTwo;
-            turnText.text = "Currently Player One";
-
-        }
-        else
-        {
-            Player = CurrentPlayer.PlayerOne;
+            CurrentPlayer = Player.Player2;
             turnText.text = "Currently Player Two";
+            turnImage.color = Color.cyan;
 
-        }
-
-    }
-
-    public void DetermineEnemy()
-    {
-        if (Player == CurrentPlayer.PlayerOne)
-        {
-            Enemy = CurrentEnemy.PlayerTwo;
         }
         else
         {
-            Enemy = CurrentEnemy.PlayerOne;
+            CurrentPlayer = Player.Player1;
+            turnText.text = "Currently Player One";
+            turnImage.color = Color.magenta;
+
         }
+
     }
 	
     void Update()
@@ -99,6 +67,7 @@ public class TurnHandler : MonoBehaviour {
 	void Start()
     {
         turnText.text = "Currently Player One";
+        turnImage.color = Color.magenta;
 
     }
 
