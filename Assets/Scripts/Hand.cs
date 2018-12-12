@@ -9,12 +9,53 @@ public class Hand : MonoBehaviour {
     [SerializeField] private KeyCode drawKey;
     [SerializeField] private KeyCode shuffleKey;
     [SerializeField] private Deck deck;
-    [SerializeField] private Player Player;
+    [SerializeField] private Player player;
+    [SerializeField] private TurnHandler tHandler;
+    [SerializeField] private ResourceHandler rHandler;
     [HideInInspector] private Card _card;
     [HideInInspector] private int handSize;
     [HideInInspector] private bool handIsFull = false;
     [HideInInspector] private List<CardUI> cardsInHand = new List<CardUI>();
-    
+
+    public ResourceHandler RHandler
+    {
+        get
+        {
+            return rHandler;
+        }
+
+        set
+        {
+            rHandler = value;
+        }
+    }
+
+    public TurnHandler THandler
+    {
+        get
+        {
+            return tHandler;
+        }
+
+        set
+        {
+            tHandler = value;
+        }
+    }
+
+    public Player Player
+    {
+        get
+        {
+            return player;
+        }
+
+        set
+        {
+            player = value;
+        }
+    }
+
 
     // Use this for initialization
     void Start ()
@@ -28,7 +69,7 @@ public class Hand : MonoBehaviour {
 	void Update ()
     {
 
-        if (Input.GetKeyDown(drawKey)) //draw a card when the key is pressed
+        if (Input.GetKeyDown(drawKey) && THandler.CurrentPlayer == Player) //draw a card when the key is pressed
         {
             CheckIfHandIsFull();
             _card = deck.drawCard(handIsFull); //Tell the deck we want a card and save it as _card

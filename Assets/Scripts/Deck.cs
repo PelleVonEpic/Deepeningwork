@@ -31,7 +31,7 @@ public class Deck : MonoBehaviour {
         }
         else
         {
-            Debug.Log("can't draw, full hand!");
+            Debug.Log("Can't draw, full hand!");
             return null;
         }
     }
@@ -48,9 +48,6 @@ public class Deck : MonoBehaviour {
             cards[randomIndex] = temp;
 
         }
-
-        Debug.Log("Deck Shuffled");
-        return;
     }
 
 
@@ -67,6 +64,7 @@ public class Deck : MonoBehaviour {
             c.Id = i + 1;
             cards.Add(c);
         }
+        shuffleCards();
     }
 	
 	// Update is called once per frame

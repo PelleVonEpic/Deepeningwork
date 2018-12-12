@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public enum playerEnum
-{
-    P1,
-    P2
-}
+
 public class ResourceHandler : MonoBehaviour {
     
     [Header("Health")]
@@ -23,8 +19,6 @@ public class ResourceHandler : MonoBehaviour {
     [SerializeField] private Text p1EnergyText;
     [SerializeField] private Text p2EnergyText;
     [SerializeField] private TurnHandler tHandler;
-
-    [HideInInspector] public playerEnum pEnum;
 
     #region Getsetters
     public int Player1Health
@@ -93,11 +87,13 @@ public class ResourceHandler : MonoBehaviour {
         p2EnergyText.text = player2Energy.ToString();
     }
 
-    public bool CheckIfICanPlayCard(int cost, playerEnum pe)
+    public bool CheckIfICanPlayCard(Card c)
     {
         bool _canPlayCard = false;
         int _energy;
-        if (pe == playerEnum.P1)
+        int cost = c.CastingCost;
+        Player p = c.Player;
+        if (p == Player.Player1)
         {
             _energy = player1Energy;
         }
@@ -109,14 +105,18 @@ public class ResourceHandler : MonoBehaviour {
         if (cost <= _energy)
         {
             _canPlayCard = true;
-            ReduceEnergy(cost, pe);
+            ReduceEnergy(cost, p);
+        }
+        else
+        {
+            Debug.Log("You don't have enough Energy to play that card");
         }
         
         return _canPlayCard;
     }
-    public void ReduceEnergy(int amount, playerEnum pe)
+    public void ReduceEnergy(int amount, Player p)
     {
-        if (pe == playerEnum.P1)
+        if (p == Player.Player1)
         {
             player1Energy -= amount;
         }
@@ -154,14 +154,7 @@ public class ResourceHandler : MonoBehaviour {
         }
         UpdateHealth();
     }
-
-
-
-
-
-
-
-
+    
     // Use this for initialization
     void Start () {
         UpdateHealth();

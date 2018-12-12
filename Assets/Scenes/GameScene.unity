@@ -1399,10 +1399,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa852028d5f33540b7226588d864a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawKey: 99
+  drawKey: 100
   shuffleKey: 120
   deck: {fileID: 1125052084}
-  Player: 1
+  player: 1
+  tHandler: {fileID: 427229560}
+  rHandler: {fileID: 459421229}
 --- !u!114 &322927571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1658,6 +1660,7 @@ MonoBehaviour:
   cardCost: {fileID: 1004660706}
   player: 0
   tHandler: {fileID: 427229560}
+  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &389626571
 MonoBehaviour:
@@ -2177,6 +2180,7 @@ MonoBehaviour:
   cardCost: {fileID: 1704515563}
   player: 0
   tHandler: {fileID: 427229560}
+  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &425461517
 MonoBehaviour:
@@ -2242,6 +2246,8 @@ MonoBehaviour:
   changeTurnKey: 97
   turnText: {fileID: 490351191}
   turnImage: {fileID: 747630104}
+  turnCount: 0
+  turnCountTracker: 0
 --- !u!4 &427229561
 Transform:
   m_ObjectHideFlags: 0
@@ -2360,7 +2366,6 @@ MonoBehaviour:
   p1EnergyText: {fileID: 934643576}
   p2EnergyText: {fileID: 336682925}
   tHandler: {fileID: 427229560}
-  pEnum: 0
 --- !u!4 &459421230
 Transform:
   m_ObjectHideFlags: 0
@@ -3113,7 +3118,9 @@ MonoBehaviour:
   drawKey: 100
   shuffleKey: 115
   deck: {fileID: 403494433}
-  Player: 0
+  player: 0
+  tHandler: {fileID: 427229560}
+  rHandler: {fileID: 459421229}
 --- !u!1 &721473480
 GameObject:
   m_ObjectHideFlags: 0
@@ -4486,6 +4493,7 @@ MonoBehaviour:
   cardCost: {fileID: 848681878}
   player: 1
   tHandler: {fileID: 427229560}
+  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &966230095
 MonoBehaviour:
@@ -4820,6 +4828,7 @@ MonoBehaviour:
   cardCost: {fileID: 1589553644}
   player: 1
   tHandler: {fileID: 427229560}
+  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1018907833
 MonoBehaviour:
@@ -4911,6 +4920,7 @@ MonoBehaviour:
   cardCost: {fileID: 1402055134}
   player: 0
   tHandler: {fileID: 427229560}
+  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1032770015
 MonoBehaviour:
@@ -5433,6 +5443,7 @@ MonoBehaviour:
   cardCost: {fileID: 1372068695}
   player: 1
   tHandler: {fileID: 427229560}
+  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1129584176
 MonoBehaviour:
@@ -5524,6 +5535,7 @@ MonoBehaviour:
   cardCost: {fileID: 1440194957}
   player: 1
   tHandler: {fileID: 427229560}
+  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1157808759
 MonoBehaviour:
@@ -5752,6 +5764,7 @@ MonoBehaviour:
   cardCost: {fileID: 724724973}
   player: 0
   tHandler: {fileID: 427229560}
+  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1206237526
 MonoBehaviour:
@@ -6681,8 +6694,9 @@ MonoBehaviour:
   cardName: {fileID: 1260222809}
   cardDescription: {fileID: 1989658525}
   cardCost: {fileID: 1979085162}
-  player: 1
-  tHandler: {fileID: 427229560}
+  player: 0
+  tHandler: {fileID: 0}
+  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1434729788
 MonoBehaviour:
@@ -7132,6 +7146,7 @@ MonoBehaviour:
   cardCost: {fileID: 2089883840}
   player: 0
   tHandler: {fileID: 427229560}
+  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1522483594
 MonoBehaviour:
@@ -7223,6 +7238,7 @@ MonoBehaviour:
   cardCost: {fileID: 305271194}
   player: 0
   tHandler: {fileID: 427229560}
+  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1534642686
 MonoBehaviour:
@@ -7981,6 +7997,7 @@ MonoBehaviour:
   cardCost: {fileID: 1048834264}
   player: 1
   tHandler: {fileID: 427229560}
+  rHandler: {fileID: 0}
   isActive: 0
 --- !u!114 &1790521753
 MonoBehaviour:

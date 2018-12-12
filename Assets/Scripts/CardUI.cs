@@ -10,8 +10,9 @@ public class CardUI : MonoBehaviour, IPointerClickHandler {
     [SerializeField] Text cardName;
     [SerializeField] Text cardDescription;
     [SerializeField] Text cardCost;
-    [SerializeField] Player player;
-    [SerializeField] private TurnHandler tHandler;
+    [HideInInspector] Player player;
+    [HideInInspector] private TurnHandler tHandler;
+    [HideInInspector] private ResourceHandler rHandler;
     [HideInInspector] Card cardReference;
     [HideInInspector] public bool isActive = false;
 
@@ -27,6 +28,9 @@ public class CardUI : MonoBehaviour, IPointerClickHandler {
     }
     void Start ()
     {
+        rHandler = GetComponentInParent<Hand>().RHandler;
+        tHandler = GetComponentInParent<Hand>().THandler;
+        player = GetComponentInParent<Hand>().Player;
         gameObject.SetActive(false);
     }
 
@@ -40,10 +44,14 @@ public class CardUI : MonoBehaviour, IPointerClickHandler {
     {
         if (tHandler.CurrentPlayer == player)
         {
-            cardReference.OnPlay();
-            gameObject.SetActive(false);
-            isActive = false;
-            cardReference = null;
+            if (rHandler.CheckIfICanPlayCard(cardReference))
+            {
+                cardReference.OnPlay();
+                gameObject.SetActive(false);
+                isActive = false;
+                cardReference = null;
+            }
+            
         }
         else
         {
