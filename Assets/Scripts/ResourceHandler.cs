@@ -154,6 +154,19 @@ public class ResourceHandler : MonoBehaviour {
         }
         UpdateHealth();
     }
+
+    public void HealPlayer(int amount, Player target)
+    {
+        if (target == Player.Player1)
+        {
+            Player1Health += amount;
+        }
+        else if (target == Player.Player2)
+        {
+            Player2Health += amount;
+        }
+        UpdateHealth();
+    }
     
     // Use this for initialization
     void Start () {

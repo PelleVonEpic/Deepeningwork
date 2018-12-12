@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Action.cs" />
      <Compile Include="Assets\Scripts\Card.cs" />
      <Compile Include="Assets\Scripts\Cards\SimpleDamageCard.cs" />
+     <Compile Include="Assets\Scripts\Cards\SimpleHealCard.cs" />
      <Compile Include="Assets\Scripts\CardUI.cs" />
      <Compile Include="Assets\Scripts\Deck.cs" />
      <Compile Include="Assets\Scripts\Hand.cs" />

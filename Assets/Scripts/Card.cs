@@ -10,20 +10,9 @@ public class Card : ScriptableObject {
     [SerializeField] private string cardName;
     [SerializeField] private int id;
     [SerializeField] private Sprite cardImage;
-    [SerializeField] private string cardDescription;
-    [SerializeField] private enum Type
-    {
-        Unit,
-        Spell,
-        Artifact,
-        Hero
-    }
-    [SerializeField] private Type type;
+    [SerializeField] private string cardDescription;   
     [SerializeField] private int castingCost;
-    [SerializeField] private int health;
     [HideInInspector] private Player player;
-    //[SerializeField] private int actionsPerTurn;
-    //[SerializeField] private List<Action> cardActions = new List<Action>();
 
     #region Getsetters
     public string CardName

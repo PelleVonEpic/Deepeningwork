@@ -12,11 +12,12 @@ public class Hand : MonoBehaviour {
     [SerializeField] private Player player;
     [SerializeField] private TurnHandler tHandler;
     [SerializeField] private ResourceHandler rHandler;
-    [HideInInspector] private Card _card;
+    [HideInInspector] private Card card;
     [HideInInspector] private int handSize;
     [HideInInspector] private bool handIsFull = false;
-    [HideInInspector] private List<CardUI> cardsInHand = new List<CardUI>();
+    //[HideInInspector] private List<CardUI> cardsInHand = new List<CardUI>();
 
+    #region Getsetters
     public ResourceHandler RHandler
     {
         get
@@ -55,7 +56,7 @@ public class Hand : MonoBehaviour {
             player = value;
         }
     }
-
+    #endregion
 
     // Use this for initialization
     void Start ()
@@ -71,42 +72,37 @@ public class Hand : MonoBehaviour {
 
         if (Input.GetKeyDown(drawKey) && THandler.CurrentPlayer == Player) //draw a card when the key is pressed
         {
-            CheckIfHandIsFull();
-            _card = deck.drawCard(handIsFull); //Tell the deck we want a card and save it as _card
-            if (_card != null)
-            {
-                for (int i = 0; i < handSize; i++) //search for inactive cards in hand
-                {
-                    CardUI _cardToUpdate = gameObject.transform.GetChild(i).GetComponent<CardUI>();
-                    if (!_cardToUpdate.isActive)
-                    {
-                        _cardToUpdate.updateCard(_card);
-                        _card.OnDraw();
-                        
-                        break;
-
-                    }
-                }
-            }
-            
-            CheckIfHandIsFull();
-            
+            DrawCard();           
         }
 
         if (Input.GetKeyDown(shuffleKey))
         {
             Debug.Log("Trying to shuffle deck");
             deck.shuffleCards();
-            
         }
-
     }
 
-    //Thought process
-    //Add Card to list
-    //Save the ID of the card
+    public void DrawCard()
+    {
+        bool _canDraw = CheckIfHandIsFull();
+        card = deck.drawCard(_canDraw); //Tell the deck we want a card and save it as _card
+        if (card != null)
+        {
+            for (int i = 0; i < handSize; i++) //search for inactive cards in hand
+            {
+                CardUI _cardToUpdate = gameObject.transform.GetChild(i).GetComponent<CardUI>();
+                if (!_cardToUpdate.isActive)
+                {
+                    _cardToUpdate.updateCard(card);
+                    card.OnDraw();
 
-    public void CheckIfHandIsFull()
+                    break;
+                }
+            }
+        }
+    }
+    
+    public bool CheckIfHandIsFull()
     {
         int c = GetComponentsInChildren<CardUI>().Length;
         if (c >= handSize)
@@ -121,11 +117,13 @@ public class Hand : MonoBehaviour {
         }
 
         Debug.Log("Cards in hand: " + c + " Maximum Cards: " + handSize);
+
+        return handIsFull;
     }
 
-    public void AddToHandList(CardUI CUI)
-    {
-        cardsInHand.Add(CUI);
-    }
+    //public void AddToHandList(CardUI CUI)
+    //{
+    //    cardsInHand.Add(CUI);
+    //}
 
 }
