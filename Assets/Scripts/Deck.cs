@@ -60,7 +60,8 @@ public class Deck : MonoBehaviour {
 
         for (int i = 0; i < deckList.Count; i++)
         {
-            Card c = deckList[i];
+            Card c = new Card();
+            c = deckList[i];
             cards.Add(c);
             cards[i].Id = i+1;
         }

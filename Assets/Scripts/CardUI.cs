@@ -23,6 +23,7 @@ public class CardUI : MonoBehaviour, IPointerClickHandler {
         cardDescription.text = c.CardDescription;
         cardCost.text = c.CastingCost.ToString();
         cardReference = c;
+        cardReference.Player = player;
         
     }
     void Start ()
@@ -38,7 +39,7 @@ public class CardUI : MonoBehaviour, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        cardReference.Player = player;
+        //cardReference.Player = player;
         cardReference.OnPlay();
         gameObject.SetActive(false);
         isActive = false;
