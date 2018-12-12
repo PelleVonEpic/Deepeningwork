@@ -1,3 +1,8 @@
 /vs
 /Library
 /obj
+.vs/
+Library/
+Temp/
+obj/
+
