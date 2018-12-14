@@ -1876,12 +1876,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3caa41bd7c092743b2af5a1625f4be7, type: 2}
   - {fileID: 11400000, guid: b3caa41bd7c092743b2af5a1625f4be7, type: 2}
   - {fileID: 11400000, guid: ebe0a503fe422e7488de169a7d8c54ff, type: 2}
-  cards:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  cards: []
   player: 0
 --- !u!4 &403494434
 Transform:
@@ -5386,12 +5381,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3caa41bd7c092743b2af5a1625f4be7, type: 2}
   - {fileID: 11400000, guid: b3caa41bd7c092743b2af5a1625f4be7, type: 2}
   - {fileID: 11400000, guid: ebe0a503fe422e7488de169a7d8c54ff, type: 2}
-  cards:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  cards: []
   player: 1
 --- !u!4 &1125052085
 Transform:

@@ -82,20 +82,30 @@ public class TurnHandler : MonoBehaviour
     {
 
         yield return new WaitForSeconds(1);
-
+        //yield return new WaitForEndOfFrame();
         //Draw Starting hands
-        for (int i = 0; i < 3; i++)
-        {
-            player1Hand.DrawCard();
-            Debug.Log("Hello!");
-        }
-        for (int i = 0; i < 3; i++)
-        {
-            Player2Hand.DrawCard(); Debug.Log("Hello! 2!");
+        //for (int i = 0; i < 3; i++)
+        //{
+        //    player1Hand.DrawCard();
+        //    Debug.Log("Hello!" + i);
+        //}
+        //for (int i = 0; i < 3; i++)
+        //{
+        //    Player2Hand.DrawCard();
+        //    Debug.Log("Hello! 2!" + i);
 
-        }
+        //}
+
+        player1Hand.DrawCard();
+        player1Hand.DrawCard();
+        player1Hand.DrawCard();
+
+        Player2Hand.DrawCard();
+        Player2Hand.DrawCard();
+        Player2Hand.DrawCard();
+
         Debug.Log("Blupp");
-
+        yield return new WaitForSeconds(1);
     }
 
     void Start()

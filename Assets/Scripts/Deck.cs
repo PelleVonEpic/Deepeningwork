@@ -6,7 +6,7 @@ using UnityEngine;
 public class Deck : MonoBehaviour {
 
     [SerializeField] private List<Card> deckList = new List<Card>();
-    [SerializeField] private List<Card> cards = new List<Card>();
+    [SerializeField] private List<Card> cards;
     [SerializeField] private Player player;
 
 
@@ -24,8 +24,6 @@ public class Deck : MonoBehaviour {
             cardToDraw = cards[0];
 
             cards.Remove(cards[0]);
-
-            Debug.Log("Remaining cards in deck: " + cards.Count);
 
             return cardToDraw;
         }
@@ -49,13 +47,10 @@ public class Deck : MonoBehaviour {
 
         }
     }
-
-
-
-
+    
 	// Use this for initialization
-	void Start () {
-
+	void Awake () {
+        cards = new List<Card>();
         for (int i = 0; i < deckList.Count; i++)
         {
             Card c = Instantiate(deckList[i]);
@@ -65,6 +60,7 @@ public class Deck : MonoBehaviour {
             cards.Add(c);
         }
         shuffleCards();
+        
     }
 	
 	// Update is called once per frame

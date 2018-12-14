@@ -15,7 +15,6 @@ public class Hand : MonoBehaviour {
     [HideInInspector] private Card card;
     [HideInInspector] private int handSize;
     [HideInInspector] private bool handIsFull = false;
-    //[HideInInspector] private List<CardUI> cardsInHand = new List<CardUI>();
 
     #region Getsetters
     public ResourceHandler RHandler
@@ -62,8 +61,6 @@ public class Hand : MonoBehaviour {
     void Start ()
     {
         handSize = GetComponentsInChildren<CardUI>(true).Length;
-        Debug.Log(handSize);
-        
 	}
 	
 	// Update is called once per frame
@@ -99,6 +96,10 @@ public class Hand : MonoBehaviour {
                     break;
                 }
             }
+        }
+        else
+        {
+            Debug.Log("Card is null");
         }
     }
     
