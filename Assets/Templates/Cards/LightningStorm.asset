@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fde76c017a5524e8e0e576e8b802a2, type: 3}
+  m_Name: LightningStorm
+  m_EditorClassIdentifier: 
+  cardName: LightningStorm
+  id: 0
+  cardImage: {fileID: 21300000, guid: 6c4278b4bf6ae6f45a71470e6066c704, type: 3}
+  cardDescription: 
+  castingCost: 2
+  relic: {fileID: 11400000, guid: bf342d877d78ef2409c5b68a1ee3def2, type: 2}

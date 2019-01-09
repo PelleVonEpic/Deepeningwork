@@ -21,6 +21,7 @@ public class TurnHandler : MonoBehaviour
     [SerializeField] private ResourceHandler rHandler;
     [SerializeField] private Hand player1Hand;
     [SerializeField] private Hand Player2Hand;
+    [SerializeField] private Board board;
     [HideInInspector] private int turnCount = 1;
     [HideInInspector] private int turnCountTracker = 0;
 
@@ -44,18 +45,22 @@ public class TurnHandler : MonoBehaviour
     {
         if (CurrentPlayer == Player.Player1) //If currently player one, change to player two
         {
+            board.PlayEndOfTurnEffects(currentPlayer);
             CurrentPlayer = Player.Player2;
             turnText.text = "Currently Player Two";
             turnImage.color = Color.cyan;
             rHandler.Player2Energy = turnCount;
+            board.PlayStartOfTurnEffects(CurrentPlayer);
             Player2Hand.DrawCard();
         }
         else //Otherwise change to player one
         {
+            board.PlayEndOfTurnEffects(currentPlayer);
             CurrentPlayer = Player.Player1;
             turnText.text = "Currently Player One";
             turnImage.color = Color.magenta;
             rHandler.Player1Energy = turnCount;
+            board.PlayStartOfTurnEffects(CurrentPlayer);
             player1Hand.DrawCard();
         }
 
