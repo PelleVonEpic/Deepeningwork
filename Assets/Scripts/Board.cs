@@ -9,9 +9,25 @@ public class Board : MonoBehaviour {
     [SerializeField] private PlayerBoard player1Board;
     [SerializeField] private PlayerBoard player2Board;
     [SerializeField] private TurnHandler tHandler;
+    [HideInInspector] private int relicsToBeRemoved;
 
-
+    #region Getsetters
     
+    public int RelicsToBeRemoved
+    {
+        get
+        {
+            return relicsToBeRemoved;
+        }
+
+        set
+        {
+            relicsToBeRemoved = value;
+        }
+    }
+
+    #endregion
+
     public void PlayRelicToOwnBoard(Player caster, Relic relicToPlay)
     {
        
@@ -28,7 +44,6 @@ public class Board : MonoBehaviour {
             player2Board.PlayRelicToBoard(relicToPlay);
 
         }
-
     }
     
     public void PlayEndOfTurnEffects(Player p)

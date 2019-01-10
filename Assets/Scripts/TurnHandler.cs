@@ -22,6 +22,7 @@ public class TurnHandler : MonoBehaviour
     [SerializeField] private Hand player1Hand;
     [SerializeField] private Hand Player2Hand;
     [SerializeField] private Board board;
+    [SerializeField] private int startingHandSize;
     [HideInInspector] private int turnCount = 1;
     [HideInInspector] private int turnCountTracker = 0;
 
@@ -43,6 +44,13 @@ public class TurnHandler : MonoBehaviour
 
     public void ChangePlayerTurn()
     {
+
+        #region Cleanup
+
+        board.RelicsToBeRemoved = 0;
+
+        #endregion
+
         if (CurrentPlayer == Player.Player1) //If currently player one, change to player two
         {
             board.PlayEndOfTurnEffects(currentPlayer);
@@ -87,27 +95,10 @@ public class TurnHandler : MonoBehaviour
     {
 
         yield return new WaitForSeconds(1);
-        //yield return new WaitForEndOfFrame();
-        //Draw Starting hands
-        //for (int i = 0; i < 3; i++)
-        //{
-        //    player1Hand.DrawCard();
-        //    Debug.Log("Hello!" + i);
-        //}
-        //for (int i = 0; i < 3; i++)
-        //{
-        //    Player2Hand.DrawCard();
-        //    Debug.Log("Hello! 2!" + i);
 
-        //}
+        player1Hand.DrawCards(startingHandSize);
 
-        player1Hand.DrawCard();
-        player1Hand.DrawCard();
-        player1Hand.DrawCard();
-
-        Player2Hand.DrawCard();
-        Player2Hand.DrawCard();
-        Player2Hand.DrawCard();
+        Player2Hand.DrawCards(startingHandSize);
 
         Debug.Log("Blupp");
         yield return new WaitForSeconds(1);
@@ -131,7 +122,7 @@ public class TurnHandler : MonoBehaviour
         }
 
         StartCoroutine( DrawOpeningHands());
-
+        
         //Make sure to count the first turn
         turnCountTracker += 1;
         turnCounterText.text = turnCount.ToString();

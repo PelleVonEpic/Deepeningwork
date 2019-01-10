@@ -61,6 +61,7 @@ public class Hand : MonoBehaviour {
     void Start ()
     {
         handSize = GetComponentsInChildren<CardUI>(true).Length;
+        
 	}
 	
 	// Update is called once per frame
@@ -102,6 +103,34 @@ public class Hand : MonoBehaviour {
             Debug.Log("Card is null");
         }
     }
+
+    public void DrawCards(int cards)
+    {
+        for (int i = 0; i < cards; i++)
+        {
+            bool _canDraw = CheckIfHandIsFull();
+            card = deck.drawCard(_canDraw); //Tell the deck we want a card and save it as _card
+            if (card != null)
+            {
+                for (int j = 0; j < handSize; j++) //search for inactive cards in hand
+                {
+                    CardUI _cardToUpdate = gameObject.transform.GetChild(j).GetComponent<CardUI>();
+                    if (!_cardToUpdate.isActive)
+                    {
+                        _cardToUpdate.updateCard(card);
+                        card.OnDraw();
+
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("Card is null");
+            }
+        }
+        
+    }
     
     public bool CheckIfHandIsFull()
     {
@@ -121,10 +150,6 @@ public class Hand : MonoBehaviour {
 
         return handIsFull;
     }
-
-    //public void AddToHandList(CardUI CUI)
-    //{
-    //    cardsInHand.Add(CUI);
-    //}
+    
 
 }

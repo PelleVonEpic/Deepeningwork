@@ -83,7 +83,7 @@ public class PlayerBoard : MonoBehaviour {
 
     public void PlayStartOfTurnEffects()
     {
-        foreach(BoardSpace b in BoardSpaces)
+        foreach(BoardSpace b in boardSpaces)
         {
             if (b.IsActive)
             {
@@ -116,7 +116,7 @@ public class PlayerBoard : MonoBehaviour {
 
         }
 
-        foreach (BoardSpace b in BoardSpaces)
+        foreach (BoardSpace b in boardSpaces)
         {
             b.Owner = Owner;
         }

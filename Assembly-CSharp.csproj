@@ -52,12 +52,21 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Action.cs" />
+     <Compile Include="Assets\Scripts\Board.cs" />
+     <Compile Include="Assets\Scripts\BoardSpace.cs" />
      <Compile Include="Assets\Scripts\Card.cs" />
      <Compile Include="Assets\Scripts\Cards\SimpleDamageCard.cs" />
      <Compile Include="Assets\Scripts\Cards\SimpleHealCard.cs" />
+     <Compile Include="Assets\Scripts\Cards\SimpleRelicCard.cs" />
+     <Compile Include="Assets\Scripts\Cards\SimpleRelicRemoval.cs" />
      <Compile Include="Assets\Scripts\CardUI.cs" />
      <Compile Include="Assets\Scripts\Deck.cs" />
      <Compile Include="Assets\Scripts\Hand.cs" />
+     <Compile Include="Assets\Scripts\PlayerBoard.cs" />
+     <Compile Include="Assets\Scripts\Relic.cs" />
+     <Compile Include="Assets\Scripts\Relics\SimpleEoTDamageRelic.cs" />
+     <Compile Include="Assets\Scripts\Relics\SimpleEOTHealRelic.cs" />
+     <Compile Include="Assets\Scripts\Relics\SimpleSoTRelic.cs" />
      <Compile Include="Assets\Scripts\ResourceHandler.cs" />
      <Compile Include="Assets\Scripts\TurnHandler.cs" />
      <Compile Include="Assets\SimpleChangeTurn.cs" />

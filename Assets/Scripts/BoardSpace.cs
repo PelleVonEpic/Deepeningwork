@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class BoardSpace : MonoBehaviour {
+
+public class BoardSpace : MonoBehaviour, IPointerClickHandler  {
 
     [HideInInspector] private Relic relic;
     [SerializeField] private Player owner;
-    [HideInInspector] private Sprite relicImage;
+    [HideInInspector] private Image relicImage;
     [HideInInspector] private bool isActive;
+    [HideInInspector] private Board board;
 
     #region getsetters
     public Relic Relic
@@ -56,14 +59,14 @@ public class BoardSpace : MonoBehaviour {
     {
         gameObject.SetActive(false);
         IsActive = false;
-
-        relicImage = GetComponent<Sprite>();
+        board = FindObjectOfType<Board>();
+        
     }
 
     public void RelicEnter(Relic relicToPlay)
     {
 
-        relicImage = relicToPlay.RelicImage;
+        GetComponent<Image>().sprite = relicToPlay.RelicImage;
         relic = relicToPlay;
         relic.RelicOwner = owner;
         gameObject.SetActive(true);
@@ -75,7 +78,7 @@ public class BoardSpace : MonoBehaviour {
     public void RelicRemove()
     {
         relic.OnExit();
-        relicImage = null;
+        GetComponent<Image>().sprite = null;
         relic = null;
         gameObject.SetActive(false);
         IsActive = false;
@@ -95,4 +98,13 @@ public class BoardSpace : MonoBehaviour {
 
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (board.RelicsToBeRemoved > 0)
+        {
+            RelicRemove();
+            board.RelicsToBeRemoved--;
+        }
+        
+    }
 }
