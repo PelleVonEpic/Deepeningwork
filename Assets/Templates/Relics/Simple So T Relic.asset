@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicName: SoTRelic
   id: 0
-  relicImage: {fileID: 21300000, guid: 6c4278b4bf6ae6f45a71470e6066c704, type: 3}
+  relicImage: {fileID: 21300000, guid: 523177a235fe1aa4ba04d0b156b0674d, type: 3}
   relicDescription: 
   rhandler: {fileID: 0}
   damage: 5

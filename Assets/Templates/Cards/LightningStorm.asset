@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: LightningStorm
   id: 0
-  cardImage: {fileID: 21300000, guid: 6c4278b4bf6ae6f45a71470e6066c704, type: 3}
+  cardImage: {fileID: 21300000, guid: 523177a235fe1aa4ba04d0b156b0674d, type: 3}
   cardDescription: 
   castingCost: 2
   relic: {fileID: 11400000, guid: bf342d877d78ef2409c5b68a1ee3def2, type: 2}

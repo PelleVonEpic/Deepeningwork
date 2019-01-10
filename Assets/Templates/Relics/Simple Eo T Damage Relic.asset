@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicName: EoTRelic
   id: 0
-  relicImage: {fileID: 21300000, guid: 4ba8155ea52c18148b779eb8ab31d9b6, type: 3}
+  relicImage: {fileID: 21300000, guid: 61710349007230f4fa01be270fb332b2, type: 3}
   relicDescription: 
   rhandler: {fileID: 0}
   damage: 3

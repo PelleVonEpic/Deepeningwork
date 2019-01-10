@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: healing Ritual
   id: 0
-  cardImage: {fileID: 21300000, guid: bb810eb72a109d4479d01aa2fa802413, type: 3}
+  cardImage: {fileID: 21300000, guid: 7c2b44a5e3c000840b1a4936df86c71e, type: 3}
   cardDescription: Restores health at the end of your turn
   castingCost: 1
   relic: {fileID: 11400000, guid: 1ba0927eeb2ab4a438da10774ff8028a, type: 2}
