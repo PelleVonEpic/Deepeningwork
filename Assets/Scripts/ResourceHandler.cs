@@ -10,14 +10,23 @@ public class ResourceHandler : MonoBehaviour {
     [SerializeField] private int player2Health;
 
     [Header("Energy")]
+    [SerializeField] private int baseEnergy;
     [SerializeField] private int player1Energy;
     [SerializeField] private int player2Energy;
+    [SerializeField] private int player1ExtraEnergy;
+    [SerializeField] private int player2ExtraEnergy;
+
+    [Header("Armor")]
+    [SerializeField] private int player1Armor;
+    [SerializeField] private int player2Armor;
 
     [Header("References")]
     [SerializeField] private Text p1HealthText;
     [SerializeField] private Text p2HealthText;
     [SerializeField] private Text p1EnergyText;
     [SerializeField] private Text p2EnergyText;
+    [SerializeField] private Text p1ArmorText;
+    [SerializeField] private Text p2ArmorText;
     [SerializeField] private TurnHandler tHandler;
 
     #region Getsetters
@@ -73,6 +82,71 @@ public class ResourceHandler : MonoBehaviour {
         }
     }
 
+    public int Player2Armor
+    {
+        get
+        {
+            return player2Armor;
+        }
+
+        set
+        {
+            player2Armor = value;
+        }
+    }
+
+    public int Player1Armor
+    {
+        get
+        {
+            return player1Armor;
+        }
+
+        set
+        {
+            player1Armor = value;
+        }
+    }
+
+    public int Player1ExtraEnergy
+    {
+        get
+        {
+            return player1ExtraEnergy;
+        }
+
+        set
+        {
+            player1ExtraEnergy = value;
+        }
+    }
+
+    public int Player2ExtraEnergy
+    {
+        get
+        {
+            return player2ExtraEnergy;
+        }
+
+        set
+        {
+            player2ExtraEnergy = value;
+        }
+    }
+
+    public int BaseEnergy
+    {
+        get
+        {
+            return baseEnergy;
+        }
+
+        set
+        {
+            baseEnergy = value;
+        }
+    }
+
     #endregion
 
     public void UpdateHealth()
@@ -85,6 +159,25 @@ public class ResourceHandler : MonoBehaviour {
     {
         p1EnergyText.text = player1Energy.ToString();
         p2EnergyText.text = player2Energy.ToString();
+    }
+
+    public void UpdateArmor()
+    {
+        p1ArmorText.text = player1Armor.ToString();
+        p2ArmorText.text = player2Armor.ToString();
+    }
+
+    public void SetEnergy(Player player)
+    {
+        if (player == Player.Player1)
+        {
+            Player1Energy = baseEnergy + Player1ExtraEnergy;
+        }
+        else
+        {
+            Player2Energy = baseEnergy + Player2ExtraEnergy;
+        }
+        UpdateEnergy();
     }
 
     public bool CheckIfICanPlayCard(Card c)
@@ -167,6 +260,20 @@ public class ResourceHandler : MonoBehaviour {
         }
         UpdateHealth();
     }
+
+    public int CalculatePlayerDamage(int damage, int armor)
+    {
+        int _damageToDeal = damage - armor;
+
+        if (_damageToDeal <= 0)
+        {
+            _damageToDeal = 1;
+        }
+
+
+        return _damageToDeal;
+    }
+
     
     // Use this for initialization
     void Start () {
@@ -176,6 +283,7 @@ public class ResourceHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        UpdateArmor();
 		
 	}
 }

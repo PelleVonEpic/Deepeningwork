@@ -57,7 +57,7 @@ public class TurnHandler : MonoBehaviour
             CurrentPlayer = Player.Player2;
             turnText.text = "Currently Player Two";
             turnImage.color = Color.cyan;
-            rHandler.Player2Energy = turnCount;
+            rHandler.SetEnergy(Player.Player2);
             board.PlayStartOfTurnEffects(CurrentPlayer);
             Player2Hand.DrawCard();
         }
@@ -67,7 +67,7 @@ public class TurnHandler : MonoBehaviour
             CurrentPlayer = Player.Player1;
             turnText.text = "Currently Player One";
             turnImage.color = Color.magenta;
-            rHandler.Player1Energy = turnCount;
+            rHandler.SetEnergy(Player.Player1);
             board.PlayStartOfTurnEffects(CurrentPlayer);
             player1Hand.DrawCard();
         }
@@ -78,8 +78,8 @@ public class TurnHandler : MonoBehaviour
         {
             turnCountTracker = 0;
             turnCount += 1;
+            rHandler.BaseEnergy++;
         }
-        rHandler.UpdateEnergy();
     }
 	
     void Update()
